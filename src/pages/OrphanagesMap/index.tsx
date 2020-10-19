@@ -26,6 +26,7 @@ const OrphanagesMap: React.FC = () => {
   useEffect(()=>{
     async function loadOrphanages(){
       const response = await api.get('/orphanages');
+      console.log(response.data)
       setOrphanages(response.data)
     }
     loadOrphanages();
