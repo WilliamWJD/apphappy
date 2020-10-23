@@ -19,15 +19,15 @@ export default function SelectMapPosition() {
   }
 
   function handleNextStep() {
-    navigation.navigate('OrphanageData');
+    navigation.navigate('OrphanageData',{ position });
   }
 
   return (
     <View style={styles.container}>
       <MapView 
         initialRegion={{
-          latitude: -27.2092052,
-          longitude: -49.6401092,
+          latitude: -22.8327222,
+          longitude: -47.1459692,
           latitudeDelta: 0.008,
           longitudeDelta: 0.008,
         }}
@@ -41,10 +41,12 @@ export default function SelectMapPosition() {
           />
         )}
       </MapView>
-
-      <RectButton style={styles.nextButton} onPress={handleNextStep}>
-        <Text style={styles.nextButtonText}>Próximo</Text>
-      </RectButton>
+      
+      { position.latitude !== 0 && (
+        <RectButton style={styles.nextButton} onPress={handleNextStep}>
+          <Text style={styles.nextButtonText}>Próximo</Text>
+        </RectButton>
+      )}
     </View>
   )
 }
